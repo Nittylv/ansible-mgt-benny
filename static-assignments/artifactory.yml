@@ -2,4 +2,4 @@
 - hosts: artifactory
   become: true
   roles: 
-    - artifactory
+    - /home/ubuntu/ansible-mgt/roles/artifactory
