@@ -1,5 +1,5 @@
 ---
-- hosts: db
+# - hosts: db
 - name: database assignment
   import_playbook: ../static-assignments/db.yml
   
