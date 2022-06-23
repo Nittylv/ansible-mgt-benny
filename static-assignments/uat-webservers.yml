@@ -1,4 +1,4 @@
 ---
 - hosts: nginx
   roles:
-     - webserver
+     - /home/ubuntu/ansible-mgt/roles/webserver
