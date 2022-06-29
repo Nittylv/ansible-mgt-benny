@@ -32,6 +32,7 @@ pipeline {
            ansiblePlaybook become: true, colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev', playbook: 'playbook/site.yml'
          }
       }
+<<<<<<< HEAD
 
       stage('Clean Workspace after build'){
         steps{
@@ -40,4 +41,47 @@ pipeline {
       }
    }
 
+=======
+    }
+    
+    stage('Test') {
+      steps {
+        script {
+          sh 'echo "Testing Stage"'
+        }
+      }
+    }
+    
+    stage('Package') {
+      steps {
+        script {
+          sh 'echo "Package Stage"'
+        }
+      }
+    }
+    
+    stage('Deploy') {
+      steps {
+        script {
+          sh 'echo "Deploy Stage"'
+        }
+      }
+    }
+      
+    stage('Clean Up') {
+      steps {
+        script {
+          sh 'echo "Clean Up Stage"'
+        }
+      }
+    }
+    }
+>>>>>>> fdf7c07ec970c20dc80e89b4ca4585b8b6f93a08
 }
+
+
+
+
+
+
+
