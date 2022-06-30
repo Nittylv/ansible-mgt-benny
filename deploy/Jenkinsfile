@@ -1,52 +1,42 @@
 pipeline {
-    agent any
+  agent any
 
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          sh 'echo "Building Stage"'
-        }
-      }
+  environment {
+      ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
     }
     
-    stage('Test') {
-      steps {
-        script {
-          sh 'echo "Testing Stage"'
+  stages{
+      stage("Initial cleanup") {
+          steps {
+            dir("${WORKSPACE}") {
+              deleteDir()
+            }
+          }
+        }
+
+      stage('Checkout SCM') {
+         steps{
+            git branch: 'cleanstage1', url: 'https://github.com/Nittylv/ansible-mgt-benny.git'
+         }
+       }
+
+      stage('Prepare Ansible For Execution') {
+        steps {
+          sh 'echo ${WORKSPACE}' 
+          sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/ansible.cfg'  
+        }
+     }
+
+      stage('Run Ansible playbook') {
+        steps {
+           ansiblePlaybook become: true, colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev', playbook: 'playbook/site.yml'
+         }
+      }
+
+      stage('Clean Workspace after build'){
+        steps{
+          cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, deleteDirs: true)
         }
       }
-    }
-    
-    stage('Package') {
-      steps {
-        script {
-          sh 'echo "Package Stage"'
-        }
-      }
-    }
-    
-    stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deploy Stage"'
-        }
-      }
-    }
-      
-    stage('Clean Up') {
-      steps {
-        script {
-          sh 'echo "Clean Up Stage"'
-        }
-      }
-    }
-    }
+  }
 }
-
-
-
-
-
-
-
