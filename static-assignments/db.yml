@@ -4,8 +4,8 @@
 #   become: yes
 
 
-- hosts: /home/ubuntu/ansible-mgt/inventory/dev/db
+- hosts: db
   become: yes
   roles:
-    - /home/ubuntu/ansible-mgt/roles/mysql
+    - mysql
      
