@@ -114,8 +114,8 @@ mysql_config_include_files: []
 
 
 # Databases.
- mysql_databases:
-    - name: Homestead
+  mysql_databases:
+   - name: Homestead
       collation: utf8_general_ci
       encoding: utf8
       replicate: 1
