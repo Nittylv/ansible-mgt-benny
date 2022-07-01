@@ -3,8 +3,8 @@ pipeline {
 
     parameters {
       string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
-    }
 
+    }
 
   environment {
       ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
@@ -43,5 +43,7 @@ pipeline {
           cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, deleteDirs: true)
         }
       }
+
   }
 }
+
