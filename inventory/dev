@@ -2,7 +2,11 @@
 <Tooling-Web-Server-Private-IP-Address>
 
 [todo]
-<Todo-Web-Server-Private-IP-Address>
+<<<<<<< HEAD
+172.31.80.50 ansible_ssh_user='ec2-user'
+=======
+52.205.253.158 ansible_ssh_user='ec2-user' 
+>>>>>>> 5fe90e57ca3f3e3c3f10ae75dae2cd941559d3bb
 
 [nginx]
 172.31.93.113 ansible_ssh_user='ec2-user' 

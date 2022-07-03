@@ -24,7 +24,7 @@
     name: jfrog-artifactory-oss
     state: present
 
-- name: set up enviromanet variables
+- name: set up environment variables
   command: echo "export ARTIFACTORY_HOME=/opt/jfrog/artifactory" >> /etc/profile
 
 - name: reload the /etc/profile

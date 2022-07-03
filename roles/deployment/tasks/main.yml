@@ -34,10 +34,10 @@
       
 - name: Download the artifact
   get_url:
-    url: http://18.209.11.55:8082/artifactory/PBL/php-todo
+    url: http://34.228.25.155:8082/artifactory/PBL/
     dest: /home/ec2-user/
     url_username: admin
-    url_password: AP6EbozNVQkUrApTCiAZhon3W79
+    url_password: AP3qwRtwAuorwPNy9FT3mpV9HHj
 
 
 - name: unzip the artifacts
