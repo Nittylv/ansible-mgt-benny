@@ -2,10 +2,10 @@
 172.31.18.218
 
 [nginx]
-172.31.93.113
+172.31.93.113 ansible_ssh_user='ec2-user' 
 
 [sonarqube]
-<SonarQube-Private-IP-Address>
+172.31.16.186 ansible_ssh_user='ubuntu' 
 
 [artifactory]
 34.228.25.155 ansible_ssh_user='ec2-user' 
